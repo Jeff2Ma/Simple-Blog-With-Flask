@@ -1,0 +1,20 @@
+{% extends "pc/header.html" %}
+
+{% block title %}{{ main_title }}{% endblock %}
+
+{% block content_title %}<i class="mega-octicon octicon-log-out"></i>{{ main_title }}{% endblock %}
+
+{% block content %}
+
+     <div class="columns logout-page">
+    <div class="four-fifths column centered">
+          <p>点击下面的按钮将注销登录,你确定要这么做吗?</p>
+            <form action="{{ url_for('logout') }}" class="form-horizontal" method="post">
+                <button class="btn btn-danger" type="submit">登出</button>
+        </form>
+    </div>
+
+        </div>
+
+
+{% endblock %}

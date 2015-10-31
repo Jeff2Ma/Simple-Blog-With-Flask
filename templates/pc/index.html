@@ -1,0 +1,32 @@
+{% extends "pc/header.html" %}
+
+{% block title %}首页{% endblock %}
+
+{% block content_title %}{% if search %}搜索 "{{ search }}"{% else %} <i class="mega-octicon octicon-book"></i>当前文章{% endif %}{% endblock %}
+
+{% block content %}
+  {% for post in object_list %}
+    {% if search %}
+      {% set post = post.post %}
+    {% endif %}
+    <h2>
+      <a href="{% if post.published %}{{ url_for('single', slug=post.slug) }}{% else %}{{ url_for('edit', slug=post.slug) }}{% endif %}">
+        {{ post.title }}
+      </a>
+    </h2>
+
+
+      <div class="single-page">
+      {{ post.html_content[:200] }}
+      {% if post.html_content[200:202] %}
+          <span>...</span>
+      {% endif %}
+      </div>
+
+    <p><i class="octicon octicon-calendar"></i> 发表于 {{ post.timestamp.strftime('%Y-%m-%d') }}</p>
+      <div class="clearfix index-hr"></div>
+  {% else %}
+    <p>找不到文章.</p>
+  {% endfor %}
+  {% include "includes/pagination.html" %}
+{% endblock %}

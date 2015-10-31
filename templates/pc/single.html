@@ -1,0 +1,19 @@
+{% extends "pc/header.html" %}
+
+{% block title %}{{ post.title }}{% endblock %}
+
+{% block content_title %} {{ post.title }}{% endblock %}
+
+{% block extra_header %}
+  {% if session.logged_in %}
+    <a href="{{ url_for('edit', slug=post.slug) }}"><i class="octicon octicon-pencil"></i>编辑本文</a>
+  {% endif %}
+{% endblock %}
+
+{% block content %}
+  <!--<p>发表于 {{ post.timestamp.strftime('%m/%d/%Y at %G:%I%p') }}</p>-->
+    <p><i class="octicon octicon-calendar"></i> 发表于 {{ post.timestamp.strftime('%Y-%m-%d') }}</p>
+    <div class="single-page">
+    {{ post.html_content }}
+    </div>
+{% endblock %}

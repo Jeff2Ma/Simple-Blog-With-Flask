@@ -1,0 +1,89 @@
+<!doctype html>
+<html>
+  <head>
+    <title>{% block title %}{% endblock %} | {{ site_name }}</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex">
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/primer.css') }}" />
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/style.css') }}" />
+    {% block extra_head %}{% endblock %}
+    <script src="{{ url_for('static', filename='js/jquery-1.11.0.min.js') }}" type="text/javascript"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+    {% block extra_scripts %}{% endblock %}
+  </head>
+
+  <body>
+
+   <header class="masthead">
+      <div class="container">
+        <a href="{{ url_for('index') }}" class="masthead-logo">
+          <span class="mega-octicon octicon-mortar-board"></span>
+          {{ site_name }}
+        </a>
+
+        <nav class="masthead-nav">
+        {% block extra_header %}{% endblock %}
+           {% if session.logged_in %}
+              <a href="{{ url_for('new_post') }}"><i class="octicon octicon-plus"></i>新建</a>
+              <a href="{{ url_for('drafts') }}"><i class="octicon octicon-file-text"></i>草稿</a>
+              <a href="{{ url_for('logout') }}"><i class="octicon octicon-sign-out""></i>登出</a>
+                {% else %}
+                    <a href="{{ url_for('login') }}"><i class="octicon octicon-sign-in"></i>登录</a>
+            {% endif %}
+
+
+        <!--
+        {% block search_bar %}
+            <form action="{{ url_for('index') }}" class="navbar-form navbar-right" id="search-form" method="get" role="search">
+              <div class="form-group">
+                <input class="form-control" name="q" placeholder="搜索" type="text" value="{% if search %}{{ search }}{% endif %}">
+              </div>
+            </form>
+          {% endblock %}-->
+        </nav>
+      </div>
+    </header>
+
+
+    <div class="container markdown-body">
+
+{#     消息队列#}
+       {% for category, message in get_flashed_messages(with_categories=true) %}
+           <div class="flash flash-{{ category }}">
+                <button type="button" class="close octicon octicon-x flash-close js-flash-close" data-dismiss="alert" aria-hidden="true"></button>
+                {{ message }}
+           </div>
+
+
+      {% endfor %}
+
+{% block page_header %}
+        <h1 class="page-title">
+          {% block content_title %}{% endblock %}
+        </h1>
+      {% endblock %}
+
+      {% block content %}{% endblock %}
+
+
+  <footer class="footer">
+        <p>Powere by JeffMa,eFeng &copy; 2015</p>
+      </footer>
+
+    </div>
+   <script src="{{ url_for('static', filename='js/anchor.min.js') }}"></script>
+    <script>
+      var selector = '.markdown-body h2, .markdown-body h3';
+      anchors.options = {
+        placement: 'left',
+        class: 'anchor-link'
+      };
+      anchors.add(selector);
+    </script>
+
+
+
+  </body>
+</html>

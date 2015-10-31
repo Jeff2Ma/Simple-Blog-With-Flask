@@ -1,0 +1,57 @@
+{% extends "pc/header.html" %}
+
+{% block title %}{{ main_title }}{% endblock %}
+
+{% block content_title %}<i class="mega-octicon octicon-pencil"></i> {{ main_title }}{% endblock %}
+
+{% block content %}
+         <div class="columns login-page">
+
+  <form action="{{ url_for('edit', slug=post.slug) }}" class="form-horizontal" method="post">
+
+
+   <div class="form-group columns">
+      <label for="title" class="one-fifth column">标题</label>
+      <div class="four-fifths column">
+        <input class="input-block" id="title" name="title" type="text" value="{{ request.form.get('title', post.title) }}">
+      </div>
+    </div>
+
+  <div class="form-group columns">
+      <label for="title" class="one-fifth column">URL 别名</label>
+      <div class="four-fifths column">
+        <input class="input-block" id="post_slug" name="post_slug" type="text" value="{{ request.form.get('post_slug',  post.slug) }}">
+      </div>
+    </div>
+
+
+   <div class="form-group columns">
+      <label for="Content" class="one-fifth column">文本</label>
+      <div class="four-fifths column">
+        <textarea class="input-block" id="content" name="content" style="height: 300px;">{{ request.form.get('content', post.content) }}</textarea>
+      </div>
+    </div>
+
+   <div class="form-group columns">
+        <label  class="one-fifth column">&nbsp;</label>
+      <div class="four-fifths column">
+        <div class="checkbox">
+          <label>
+            <input {% if post.published %}checked="checked" {% endif %}name="published" type="checkbox" value="y">公开(不勾选则保存为草稿)
+          </label>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="form-group columns">
+      <div class="four-fifths column centered">
+        <button class="btn btn-primary" type="submit">保存</button>
+        <a class="btn btn-default btn-second" href="{{ url_for('index') }}">取消</a>
+      </div>
+    </div>
+
+  </form>
+    </div>
+{% endblock %}
