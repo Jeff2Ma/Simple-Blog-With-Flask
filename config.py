@@ -17,7 +17,7 @@ from playhouse.sqlite_ext import *
 APP_DIR = os.path.dirname(os.path.realpath(__file__))
 
 # 数据库路径
-DATABASE = 'sqliteext:///%s' % os.path.join(APP_DIR, 'blog.db')
+DATABASE = 'sqliteext:///%s' % os.path.join(APP_DIR, 'data/blog.db')
 DEBUG = True
 
 # 定义用户密码
