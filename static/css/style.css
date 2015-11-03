@@ -2663,3 +2663,13 @@ body {
 i.octicon{
 	width: 16px;
 }
+
+.pager{
+    list-style: none;
+    text-align: center;
+}
+
+.pager li{
+    display: inline-block;
+    width:30%;
+}

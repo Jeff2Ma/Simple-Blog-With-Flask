@@ -115,6 +115,7 @@ def edit(slug):
     post = get_object_or_404(Post, Post.slug == slug)
     if request.method == 'POST':
         if request.form.get('title') and request.form.get('content'):
+            #post.slug = request.form['post_slug']
             post.title = request.form['title']
             post.content = request.form['content']
             post.published = request.form.get('published') or False
