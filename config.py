@@ -18,13 +18,16 @@ APP_DIR = os.path.dirname(os.path.realpath(__file__))
 
 # 数据库路径
 DATABASE = 'sqliteext:///%s' % os.path.join(APP_DIR, 'data/blog.db')
-DEBUG = True
+DEBUG = False
 
 # 定义用户密码
 ADMIN_NAME = 'admin'
 ADMIN_PASSWORD = 'admin'
 
+
+# 定义名称,ip端口等
 SITE_NAME = '小博客'
+HOST = '127.0.0.1:5000'
 
 # 控制cookie 的私有密钥
 SECRET_KEY = '1111'
