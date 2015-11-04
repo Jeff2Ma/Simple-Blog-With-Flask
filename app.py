@@ -62,10 +62,6 @@ def index():
     else:
         query = Post.public().order_by(Post.timestamp.desc())
 
-    # The `object_list` helper will take a base query and then handle
-    # paginating the results if there are more than 20. For more info see
-    # the docs:
-    # http://docs.peewee-orm.com/en/latest/peewee/playhouse.html#object_list
     return object_list(
         'pc/index.html',
         query,
@@ -144,7 +140,7 @@ def clean_querystring(request_args, *keys_to_remove, **new_values):
 
 @app.errorhandler(404)
 def not_found(exc):
-    return Response('<h3>404 Not found</h3>'), 404
+    return render_template('pc/404.html',site_name=site_name), 404
 
 def main():
     database.create_tables([Post, FTSPost], safe=True)

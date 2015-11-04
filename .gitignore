@@ -4,3 +4,5 @@ lib
 .python
 pip-selfcheck.json
 *.pyc
+config.pyc
+model.pyc
