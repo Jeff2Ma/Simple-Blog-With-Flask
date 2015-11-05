@@ -41,7 +41,3 @@ app = Flask(__name__)
 app.config.from_object(__name__)
 flask_db = FlaskDB(app)
 database = flask_db.database
-
-
-
-

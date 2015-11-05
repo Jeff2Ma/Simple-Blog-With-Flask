@@ -15,7 +15,6 @@
       </a>
     </h2>
 
-
       <div class="single-page">
       {{ post.html_content[:200] }}
       {% if post.html_content[200:202] %}
@@ -23,7 +22,7 @@
       {% endif %}
       </div>
 
-    <p><i class="octicon octicon-calendar"></i> 发表于 {{ post.timestamp.strftime('%Y-%m-%d') }}</p>
+      <p><i class="octicon octicon-calendar"></i> 发表于 {{ post.timestamp.strftime('%Y-%m-%d') }}</p>
       <div class="clearfix index-hr"></div>
   {% else %}
     <p>找不到文章.</p>

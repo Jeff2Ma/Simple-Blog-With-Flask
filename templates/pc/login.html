@@ -12,27 +12,26 @@
 
      <form action="{{ url_for('login', next=next_url) }}" class="form-horizontal" method="post">
 
-  <div class="form-group columns">
-      <label for="name" class="one-fourth column">用户名</label>
-      <div class="three-fourths column">
-        <input class="input-block" id="name" name="name" type="text">
+      <div class="form-group columns">
+          <label for="name" class="one-fourth column">用户名</label>
+          <div class="three-fourths column">
+            <input class="input-block" id="name" name="name" type="text">
+          </div>
       </div>
-  </div>
 
-    <div class="form-group columns">
-      <label for="password" class="one-fourth column">密码</label>
-      <div class="three-fourths column">
-        <input class="input-block" id="password" name="password" type="password">
-      </div>
-    </div>
-    <div class="form-group columns centered">
-      <div class="input-block">
-        <button class="centered btn btn-primary" type="submit">登 录</button>
-      </div>
-    </div>
-  </form>
-    </div>
+        <div class="form-group columns">
+          <label for="password" class="one-fourth column">密码</label>
+          <div class="three-fourths column">
+            <input class="input-block" id="password" name="password" type="password">
+          </div>
         </div>
 
-
+        <div class="form-group columns centered">
+          <div class="input-block">
+            <button class="centered btn btn-primary" type="submit">登 录</button>
+          </div>
+        </div>
+        </form>
+    </div>
+ </div>
 {% endblock %}

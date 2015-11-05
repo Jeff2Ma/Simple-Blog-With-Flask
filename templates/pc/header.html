@@ -45,15 +45,11 @@
 
 
     <div class="container markdown-body">
-
-{#     消息队列#}
        {% for category, message in get_flashed_messages(with_categories=true) %}
            <div class="flash flash-{{ category }}">
                 <button type="button" class="close octicon octicon-x flash-close js-flash-close" data-dismiss="alert" aria-hidden="true"></button>
                 {{ message }}
            </div>
-
-
       {% endfor %}
 
 {% block page_header %}
@@ -63,7 +59,6 @@
       {% endblock %}
 
       {% block content %}{% endblock %}
-
 
   <footer class="footer">
         <p>Powere by JeffMa,eFeng &copy; 2015</p>
