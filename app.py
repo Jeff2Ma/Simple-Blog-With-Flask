@@ -144,7 +144,7 @@ def not_found(exc):
 
 def main():
     database.create_tables([Post, FTSPost], safe=True)
-    app.run(debug=True)
+    app.run(host='0.0.0.0',port=5000,debug=True)
 
 if __name__ == '__main__':
     main()
