@@ -11,15 +11,13 @@ from markdown import markdown
 from markdown.extensions.codehilite import CodeHiliteExtension
 from markdown.extensions.extra import ExtraExtension
 from micawber import bootstrap_basic, parse_html
-from micawber.cache import Cache as OEmbedCache
 from peewee import *
-from playhouse.flask_utils import FlaskDB, get_object_or_404, object_list
-from playhouse.sqlite_ext import *
 
-
+ # 导入其他文件
 from config import *
 
 class Post(flask_db.Model):
+    # 定义数据库基本表值
     title = CharField()
     slug = CharField(unique=True)
     content = TextField()
@@ -42,6 +40,7 @@ class Post(flask_db.Model):
         return Markup(oembed_content)
 
     def save(self, *args, **kwargs):
+        # 如果上一步骤没有继承别名下来自动用title 作为别名
         if not self.slug:
             self.slug = re.sub('[^\w]+', '-', self.title)
         ret = super(Post, self).save(*args, **kwargs)
