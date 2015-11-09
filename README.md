@@ -17,6 +17,29 @@ Flask、peewee、jQuery、Primer
 
 SQLite
 
+## Screenshot
+
+![文章页](./static/img/screenshot1.png)
+
+![新增文章页](./static/img/screenshot3.png)
+
+![编辑文章页](./static/img/screenshot2.png)
+
+## 文件结构
+	.
+	├── app.py  基本文件
+	├── config.py 配置文件
+	├── data 数据库文件夹
+	├── model.py 核心类文件
+	├── requirements.txt 必需安装模块清单
+	├── static 静态文件夹
+	│   ├── css
+	│   ├── fonts
+	│   ├── img
+	│   ├── js
+	└── templates 模板文件
+ 
+
 ## 使用方法
 
 1. 通过`git clone` 下载本rep
@@ -37,6 +60,8 @@ SQLite
 4. 启动本地服务器
 
 		python app.py
+		
+5. 最后通过 http://127.0.0.1:5000/ 访问即可。
 		
 ## 使用到的Python 库（第三方模块）
 
