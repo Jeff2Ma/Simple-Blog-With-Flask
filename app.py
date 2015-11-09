@@ -65,10 +65,9 @@ def index():
 @login_required
 def new_post():
     if request.method == 'POST':
-        if request.form.get('title') and request.form.get('content'):
+        if request.form.get('title') and request.form.get('post_slug') and request.form.get('content'):
             post = Post.create(
-               # slug = ,
-                # 别名写入之前使用编码进行修改
+                # 别名写入之前使用编码进行修改,放弃
                 slug = re.sub('[^\w]+', '-', request.form['post_slug']),
                 title=request.form['title'],
                 content=request.form['content'],
